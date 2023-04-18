@@ -1,20 +1,32 @@
 import { TextInput, View, Pressable, StyleSheet } from 'react-native';
-import MyText from '../../components/MyText';
+import { MyTextBold }  from '../../components/MyText';
+import MySvg from '../../components/MySvg';
 
 const InputArea = () => {
   return (
     <View style={styles.InputArea}>
-      <TextInput
+      <View
         style={styles.input}
-        placeholder='Enter GitHub username'
-        placeholderTextColor="#999"
-        autoCapitalize='none'
-        autoCorrect={false}
-        value={'username'}
-        // onChangeText={setUsername}
-      />
+      >
+        {/* <Image
+          source={require("../../assets/images/")}
+        /> */}
+        <MySvg
+          path={"../../assets/images/icon-search.svg"}
+          style={styles.img}
+        />
+        <TextInput
+          placeholder='Enter GitHub username'
+          value={''}
+          keyboardType='default'
+          // onChangeText={setUsername}
+          placeholderTextColor='#fff'
+          // autoCapitalize='none'
+          // autoCorrect={false}
+        />
+      </View>
       <Pressable style={styles.button}>
-        <MyText>Search</MyText>
+        <MyTextBold>Search</MyTextBold>
       </Pressable>
     </View>
   );
@@ -22,10 +34,29 @@ const InputArea = () => {
 
 const styles = StyleSheet.create({
   InputArea: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center', // only applies to direct children
+    backgroundColor: '#1e2a47',
+    borderRadius: 10,
+    padding: 10,
+    marginTop: 40,
   },
   input: {
+    // backgroundColor: '#',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  img: {
+    marginRight: 10,
   },
   button: {
+    height: 45,
+    width: 80,
+    backgroundColor: '#0079ff',
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
