@@ -1,5 +1,5 @@
 import { useFonts, useCallBack } from 'expo-font';
-
+import { SafeAreaView } from 'react-native';
 
 import GitHubProfile from './screens/GitHubProfile';
 
@@ -11,7 +11,11 @@ const App = () => {
 
   if (!fontsLoaded) return null;
 
-  return <GitHubProfile />;
+  return (
+    <SafeAreaView>
+      <GitHubProfile />
+    </SafeAreaView>
+  );
 };
 
 export default App;
