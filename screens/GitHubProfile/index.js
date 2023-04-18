@@ -1,7 +1,12 @@
 import { useState } from 'react';
 import { View, Text, TextInput, Button, ActivityIndicator } from 'react-native';
-import { Card, Image } from 'react-native-elements';
+import { Image } from 'react-native-elements';
 import axios from 'axios';
+
+import Header from './Header';
+import InputArea from './InputArea';
+import Card from './Card';
+
 
 const GitHubProfile = () => {
   // const [loading, setLoading] = useState(false);
@@ -24,6 +29,14 @@ const GitHubProfile = () => {
 
   //   setLoading(false);
   // };
+
+  return (
+    <View style={{ paddingHorizontal: 20 }}>
+      <Header />
+      <InputArea />
+      <Card />
+    </View>
+  );
 
   // return (
   //   <View style={{ paddingHorizontal: 20 }}>
