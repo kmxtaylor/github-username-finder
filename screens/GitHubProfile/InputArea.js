@@ -12,7 +12,7 @@ const InputArea = () => {
           source={require("../../assets/images/")}
         /> */}
         <MySvg
-          path={"../../assets/images/icon-search.svg"}
+          svgPath={"../../assets/images/icon-search.svg"}
           style={styles.img}
         />
         <TextInput

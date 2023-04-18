@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native';
 import Svg, { Image } from 'react-native-svg';
 
-const MySvg = ({ path }) => {
+const MySvg = ({ svgPath }) => {
   // const svgString = require(path);
   return (
     <Svg style={styles.svg}>
-      <Image href={path} />
+      <Image href={svgPath} />
       {/* <Image href={svgString} /> */}
     </Svg>
   );
