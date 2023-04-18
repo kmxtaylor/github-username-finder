@@ -1,4 +1,4 @@
-import { TextInput, View, Pressable, StyleSheet } from 'react-native';
+import { TextInput, View, Pressable, Image, StyleSheet } from 'react-native';
 import { MyTextBold }  from '../../components/MyText';
 import MySvg from '../../components/MySvg';
 
@@ -8,13 +8,15 @@ const InputArea = () => {
       <View
         style={styles.input}
       >
-        {/* <Image
-          source={require("../../assets/images/")}
-        /> */}
-        <MySvg
-          svgPath={"../../assets/images/icon-search.svg"}
+        <Image
+          source={require("../../assets/images/icon-search.png")}
           style={styles.img}
         />
+        {/* <MySvg
+          svgPath={require('../../assets/images/icon-search.svg')}
+          // svgPath='/home/eninjabunny/git-repos/react-native-github-username-finder/assets/images/icon-search.svg'
+          style={styles.img}
+        /> */}
         <TextInput
           placeholder='Enter GitHub username'
           value={''}
@@ -48,7 +50,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   img: {
+    width: 30,
+    height: 30,
     marginRight: 10,
+    // marginVertical: 20,
   },
   button: {
     height: 45,
