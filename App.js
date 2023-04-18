@@ -1,5 +1,5 @@
 import { useFonts, useCallBack } from 'expo-font';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, StyleSheet, StatusBar } from 'react-native';
 
 import GitHubProfile from './screens/GitHubProfile';
 
@@ -12,10 +12,20 @@ const App = () => {
   if (!fontsLoaded) return null;
 
   return (
-    <SafeAreaView>
-      <GitHubProfile />
-    </SafeAreaView>
+    <>
+      <StatusBar barStyle='light-content'></StatusBar>
+      <SafeAreaView style={styles.container}>
+        <GitHubProfile />
+      </SafeAreaView>
+    </>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#141d2f',
+  },
+});
 
 export default App;
