@@ -20,6 +20,22 @@ const Card = () => {
       <View style={styles.bioView}>
         <MyTextBold style={{color: '#697c9a'}}>This Profile has no bio</MyTextBold>
       </View>
+      <View
+        style={styles.status}
+      >
+        <View>
+          <MyText style={styles.statusLabel}>Repos</MyText>
+          <MyTextBold style={styles.statusNumber}>0</MyTextBold>
+        </View>
+        <View>
+          <MyText style={styles.statusLabel}>Followers</MyText>
+          <MyTextBold style={styles.statusNumber}>1</MyTextBold>
+        </View>
+        <View>
+          <MyText style={styles.statusLabel}>Following</MyText>
+          <MyTextBold style={styles.statusNumber}>2</MyTextBold>
+        </View>
+      </View>
     </View>
   );
 };
@@ -43,6 +59,22 @@ const styles = StyleSheet.create({
   bioView: {
     marginVertical: 10,
     paddingVertical: 10,
+  },
+  status: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#141d2f',
+    borderRadius: 10,
+    padding: 20,
+    marginTop: 20,
+    // marginVertical: 20,
+  },
+  statusLabel: {
+    fontSize: 12,
+  },
+  statusNumber: {
+    fontSize: 20,
   },
 });
 
