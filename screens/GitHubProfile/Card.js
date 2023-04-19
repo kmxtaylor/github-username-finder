@@ -1,5 +1,9 @@
 import { View, Image, StyleSheet } from 'react-native';
 import { MyText, MyTextBold } from '../../components/MyText';
+import LocationIcon from '../../components/LocationIcon';
+import TwitterIcon from '../../components/TwitterIcon';
+import WebsiteIcon from '../../components/WebsiteIcon';
+import CompanyIcon from '../../components/CompanyIcon';
 
 const Card = () => {
   return (
@@ -18,11 +22,9 @@ const Card = () => {
         </View>
       </View>
       <View style={styles.bioView}>
-        <MyTextBold style={{color: '#697c9a'}}>This Profile has no bio</MyTextBold>
+        <MyTextBold style={styles.bioText}>This Profile has no bio</MyTextBold>
       </View>
-      <View
-        style={styles.status}
-      >
+      <View style={styles.status}>
         <View>
           <MyText style={styles.statusLabel}>Repos</MyText>
           <MyTextBold style={styles.statusNumber}>0</MyTextBold>
@@ -34,6 +36,24 @@ const Card = () => {
         <View>
           <MyText style={styles.statusLabel}>Following</MyText>
           <MyTextBold style={styles.statusNumber}>2</MyTextBold>
+        </View>
+      </View>
+      <View style={styles.detailsView}>
+        <View style={styles.detail}>
+          <LocationIcon color='white'/>
+          <MyText>Location</MyText>
+        </View>
+        <View style={styles.detail}>
+          <TwitterIcon color='white'/>
+          <MyText>Twitter</MyText>
+        </View>
+        <View style={styles.detail}>
+          <WebsiteIcon color='white'/>
+          <MyText>Website</MyText>
+        </View>
+        <View style={styles.detail}>
+          <CompanyIcon color='white'/>
+          <MyText>Company</MyText>
         </View>
       </View>
     </View>
@@ -57,8 +77,11 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   bioView: {
-    marginVertical: 10,
+    marginTop: 10,
     paddingVertical: 10,
+  },
+  bioText: {
+    color: '#697c9a'
   },
   status: {
     flexDirection: 'row',
@@ -68,13 +91,20 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 20,
     marginTop: 20,
-    // marginVertical: 20,
   },
   statusLabel: {
     fontSize: 12,
   },
   statusNumber: {
     fontSize: 20,
+  },
+  detailsView: {
+    marginTop: 20
+  },
+  detail: {
+    flexDirection: 'row',
+    marginVertical: 10,
+    gap: 20,
   },
 });
 

@@ -1,6 +1,6 @@
 import { TextInput, View, Pressable, Image, StyleSheet } from 'react-native';
 import { MyTextBold }  from '../../components/MyText';
-import MySvg from '../../components/MySvg';
+import SearchIcon from '../../components/SearchIcon';
 
 const InputArea = () => {
   return (
@@ -8,14 +8,10 @@ const InputArea = () => {
       <View
         style={styles.input}
       >
-        <Image
+        <SearchIcon style={styles.searchIcon}/>
+        {/* <Image
           source={require("../../assets/images/icon-search.png")}
-          style={styles.img}
-        />
-        {/* <MySvg
-          svgPath={require('../../assets/images/icon-search.svg')}
-          // svgPath='/home/eninjabunny/git-repos/react-native-github-username-finder/assets/images/icon-search.svg'
-          style={styles.img}
+          style={styles.searchIcon}
         /> */}
         <TextInput
           placeholder='Enter GitHub username'
@@ -49,9 +45,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  img: {
-    width: 30,
-    height: 30,
+  searchIcon: {
+    // width: 30,
+    // height: 30,
     marginRight: 10,
     // marginVertical: 20,
   },
