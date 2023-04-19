@@ -31,7 +31,7 @@ const GitHubProfile = () => {
   // };
 
   return (
-    <View style={{ paddingHorizontal: 20 }}>
+    <View>
       <Header />
       <InputArea />
       <Card />
