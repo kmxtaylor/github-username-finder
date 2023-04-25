@@ -12,6 +12,8 @@ const Card = ({ user, error, loading }) => {
 
   else if (!user) return null;
 
+  const colorUnavailable = '#4b6a9b';
+
   return (
     <View style={styles.card}>
       <View style={styles.profileTop}>
@@ -49,20 +51,28 @@ const Card = ({ user, error, loading }) => {
       </View>
       <View style={styles.detailsView}>
         <View style={styles.detail}>
-          <LocationIcon color='white'/>
-          <MyText>{user.location ? user.location : 'Unavailable'}</MyText>
+          <LocationIcon color={user.location ? 'white': colorUnavailable} />
+          <MyText
+            style={{color: user.location ? 'white': colorUnavailable}}
+          >{user.location ? user.location : 'Unavailable'}</MyText>
         </View>
         <View style={styles.detail}>
-          <TwitterIcon color='white'/>
-          <MyText>{user.twitter_username ? user.twitter_username : 'Unavailable'}</MyText>
+          <TwitterIcon color={user.twitter_username ? 'white': colorUnavailable} />
+          <MyText
+            style={{color: user.twitter_username ? 'white': colorUnavailable}}
+          >{user.twitter_username ? user.twitter_username : 'Unavailable'}</MyText>
         </View>
         <View style={styles.detail}>
-          <WebsiteIcon color='white'/>
-          <MyText>{user.blog ? user.blog : 'Unavailable'}</MyText>
+          <WebsiteIcon color={user.blog ? 'white': colorUnavailable}/>
+          <MyText
+            style={{color: user.blog ? 'white': colorUnavailable}}
+          >{user.blog ? user.blog : 'Unavailable'}</MyText>
         </View>
         <View style={styles.detail}>
-          <CompanyIcon color='white'/>
-          <MyText>{user.company ? user.company : 'Unavailable'}</MyText>
+          <CompanyIcon color={user.company ? 'white': colorUnavailable}/>
+          <MyText
+            style={{color: user.company ? 'white': colorUnavailable}}
+          >{user.company ? user.company : 'Unavailable'}</MyText>
         </View>
       </View>
     </View>
