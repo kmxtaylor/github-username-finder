@@ -5,55 +5,64 @@ import TwitterIcon from '../../components/TwitterIcon';
 import WebsiteIcon from '../../components/WebsiteIcon';
 import CompanyIcon from '../../components/CompanyIcon';
 
-const Card = () => {
+const Card = ({ user, error, loading }) => {
+  if (loading) return null;
+
+  else if (loading) return null;
+
+  else if (!user) return null;
+
   return (
     <View style={styles.card}>
       <View style={styles.profileTop}>
         <Image
           style={styles.avatar}
-          source={require('../../assets/images/image-user-placeholder.png')}
+          source={{ uri: user.avatar_url }}
+          // source={require('../../assets/images/image-user-placeholder.png')}
         />
         <View
           style={styles.profileHeaderText}
         >
-          <MyTextBold style={{fontSize: 22}}>Name</MyTextBold>
-          <MyText style={{color: '#0079ff'}}>@username</MyText>
-          <MyText>Join time</MyText>
+          <MyTextBold style={{fontSize: 22}}>{user.name}</MyTextBold>
+          <MyText style={{color: '#0079ff'}}>@{user.login}</MyText>
+          <MyText>{user.created_at}</MyText>
         </View>
       </View>
       <View style={styles.bioView}>
-        <MyTextBold style={styles.bioText}>This Profile has no bio</MyTextBold>
+        <MyText style={styles.bioText}>
+          {user.bio ? user.bio : 'This profile has no bio'}
+        </MyText>
       </View>
       <View style={styles.status}>
         <View>
           <MyText style={styles.statusLabel}>Repos</MyText>
-          <MyTextBold style={styles.statusNumber}>0</MyTextBold>
+          <MyTextBold style={styles.statusNumber}>{user.public_repos}</MyTextBold>
         </View>
         <View>
           <MyText style={styles.statusLabel}>Followers</MyText>
-          <MyTextBold style={styles.statusNumber}>1</MyTextBold>
+          <MyTextBold style={styles.statusNumber}>{user.followers}</MyTextBold>
         </View>
         <View>
           <MyText style={styles.statusLabel}>Following</MyText>
-          <MyTextBold style={styles.statusNumber}>2</MyTextBold>
+          <MyTextBold style={styles.statusNumber}>{user.following}</MyTextBold>
         </View>
       </View>
       <View style={styles.detailsView}>
         <View style={styles.detail}>
           <LocationIcon color='white'/>
-          <MyText>Location</MyText>
+          <MyText>{user.location ? user.location : 'Unavailable'}</MyText>
         </View>
         <View style={styles.detail}>
           <TwitterIcon color='white'/>
-          <MyText>Twitter</MyText>
+          <MyText>{user.twitter_username ? user.twitter_username : 'Unavailable'}</MyText>
         </View>
         <View style={styles.detail}>
           <WebsiteIcon color='white'/>
-          <MyText>Website</MyText>
+          <MyText>{user.blog ? user.blog : 'Unavailable'}</MyText>
         </View>
         <View style={styles.detail}>
           <CompanyIcon color='white'/>
-          <MyText>Company</MyText>
+          <MyText>{user.company ? user.company : 'Unavailable'}</MyText>
         </View>
       </View>
     </View>

@@ -7,7 +7,7 @@ const InputArea = ({ searchUser, loading }) => {
   const [username, setUsername] = useState('');
 
   const handleSubmit = () => {
-    console.log('submitting username: ', username);
+    // console.log('submitting username: ', username);
     searchUser(username); // async, but don't need to wait for its completion
   };
 

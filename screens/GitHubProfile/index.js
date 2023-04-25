@@ -33,7 +33,7 @@ const GitHubProfile = () => {
     <View>
       <Header />
       <InputArea searchUser={searchUser} loading={loading} />
-      <Card />
+      <Card user={user} error={error} loading={loading} />
     </View>
   );
 
