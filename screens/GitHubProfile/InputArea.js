@@ -1,8 +1,16 @@
-import { TextInput, View, Pressable, Image, StyleSheet } from 'react-native';
+import { useState } from 'react';
+import { TextInput, View, Pressable, StyleSheet } from 'react-native';
 import { MyTextBold }  from '../../components/MyText';
 import SearchIcon from '../../components/SearchIcon';
 
-const InputArea = () => {
+const InputArea = ({ searchUser, loading }) => {
+  const [username, setUsername] = useState('');
+
+  const handleSubmit = () => {
+    console.log('submitting username: ', username);
+    searchUser(username); // async, but don't need to wait for its completion
+  };
+
   return (
     <View style={styles.InputArea}>
       <View
@@ -15,15 +23,20 @@ const InputArea = () => {
         /> */}
         <TextInput
           placeholder='Enter GitHub username'
-          value={''}
+          value={username}
           keyboardType='default'
-          // onChangeText={setUsername}
-          placeholderTextColor='#fff'
+          onChangeText={setUsername}
+          placeholderTextColor={'#fff'}
           // autoCapitalize='none'
           // autoCorrect={false}
+          style={{color: '#fff', fontFamily: 'SpaceMono-Regular'}}
         />
       </View>
-      <Pressable style={styles.button}>
+      <Pressable
+        style={styles.button}
+        onPress={handleSubmit}
+        disabled={username === '' || loading}
+      >
         <MyTextBold>Search</MyTextBold>
       </Pressable>
     </View>
