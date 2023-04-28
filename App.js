@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useFonts } from 'expo-font';
-import { SafeAreaView, StyleSheet, StatusBar, View } from 'react-native';
+import { SafeAreaView, StyleSheet, StatusBar, ScrollView } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 
 import GitHubProfile from './screens/GitHubProfile';
@@ -27,9 +27,13 @@ const App = () => {
     <>
       <StatusBar barStyle='light-content'></StatusBar>
       <SafeAreaView style={styles.container}>
-        <View style={styles.subContainer} onLayout={onLayoutRootView}>
+        <ScrollView
+          style={styles.subContainer}
+          onLayout={onLayoutRootView}
+          keyboardShouldPersistTaps='handled'
+        >
           <GitHubProfile />
-        </View>
+        </ScrollView>
       </SafeAreaView>
     </>
   );
