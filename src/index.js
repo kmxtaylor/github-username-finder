@@ -4,6 +4,7 @@ import { SafeAreaView, StyleSheet, StatusBar, ScrollView } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 
 import GitHubProfile from 'screens/GitHubProfile';
+import Settings from 'screens/Settings';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -32,7 +33,8 @@ const App = () => {
           onLayout={onLayoutRootView}
           keyboardShouldPersistTaps='handled'
         >
-          <GitHubProfile />
+          <Settings />
+          {/* <GitHubProfile /> */}
         </ScrollView>
       </SafeAreaView>
     </>
