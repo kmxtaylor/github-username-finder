@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { TextInput, View, Pressable, StyleSheet } from 'react-native';
-import { MyTextBold }  from '../../components/MyText';
-import SearchIcon from '../../components/SearchIcon';
+import { MyTextBold }  from 'components/MyText';
+import SearchIcon from 'components/SearchIcon';
 
 const InputArea = ({ searchUser, loading }) => {
   const [username, setUsername] = useState('');

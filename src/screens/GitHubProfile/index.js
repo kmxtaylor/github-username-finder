@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { View, Text, TextInput, Button, ActivityIndicator } from 'react-native';
-import { Image } from 'react-native-elements';
+// import { Image } from 'react-native-elements';
 import axios from 'axios';
 
 import Header from './Header';
