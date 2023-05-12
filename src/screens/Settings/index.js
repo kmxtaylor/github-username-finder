@@ -9,7 +9,7 @@ const Settings = () => {
 
   return (
     <View>
-      <Header />
+      <Header style={{ marginBottom: 40 }} />
       <Pressable style={styles.button}>
         <View style={styles.radioCircle} />
         <MyText style={{ fontSize: 25 }}>light</MyText>
@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     alignItems: 'center', // perp axis
     // justifyContent: 'center', // main axis
     gap: 10,
+    marginVertical: 10,
   },
   radioCircle: {
     height: 20,
