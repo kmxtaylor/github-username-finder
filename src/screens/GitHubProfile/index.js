@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import { View, Text, TextInput, Button, ActivityIndicator } from 'react-native';
-// import { Image } from 'react-native-elements';
+import { useState, useEffect } from 'react';
+import { View } from 'react-native';
 import axios from 'axios';
 
 import Header from './Header';
@@ -12,15 +11,20 @@ const GitHubProfile = () => {
   const [error, setError] = useState(null);
   const [user, setUser] = useState(null);
 
+  const fetchProfile = async (username) => {
+    const response = await axios.get(`https://api.github.com/users/${username}`);
+    return response.data;
+  };
+
   const searchUser = async (username) => {
     setLoading(true);
     setError(null);
     setUser(null);
 
     try {
-      const response = await axios.get(`https://api.github.com/users/${username}`);
-      setUser(response.data);
-      console.log('User: ', response.data);
+      const response = await fetchProfile(username);
+      setUser(response);
+      console.log('User: ', response);
     } catch (error) {
       console.error(error);
       setError(error.message);
@@ -28,6 +32,15 @@ const GitHubProfile = () => {
 
     setLoading(false);
   };
+
+  useEffect(() => {
+    const getProfile = async () => {
+      const profileFromServer = await fetchProfile('octocat');
+      setUser(profileFromServer);
+    };
+
+    getProfile();
+  }, []);
 
   return (
     <View>

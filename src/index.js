@@ -33,8 +33,8 @@ const App = () => {
           onLayout={onLayoutRootView}
           keyboardShouldPersistTaps='handled'
         >
-          <Settings />
-          {/* <GitHubProfile /> */}
+          {/* <Settings /> */}
+          <GitHubProfile />
         </ScrollView>
       </SafeAreaView>
     </>
