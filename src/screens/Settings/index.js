@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StyleSheet, View, Pressable, ActivityIndicator } from 'react-native';
 
 import Header from './Header';
@@ -7,15 +7,26 @@ import MyText from 'components/MyText';
 const Settings = () => {
   const [theme, setTheme] = useState('dark');
 
+  const changeTheme = (curTheme) => {
+    if (curTheme !== theme) {
+      setTheme(curTheme);
+    }
+  };
+
+  useEffect(() => {
+    // do something when theme changes
+    console.log('theme updated to: ', theme);
+  }, [theme]);
+
   return (
     <View>
       <Header style={{ marginBottom: 40 }} />
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button} onPress={() => {changeTheme('light')}}>
         <View style={styles.radioCircle} />
         <MyText style={{ fontSize: 25 }}>light</MyText>
       </Pressable>
       <View style={styles.horizontalLine} />
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button} onPress={() => {changeTheme('dark')}}>
         <View style={styles.radioCircle} />
         <MyText style={{ fontSize: 25 }}>dark</MyText>
       </Pressable>
