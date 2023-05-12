@@ -22,12 +22,18 @@ const Settings = () => {
     <View>
       <Header style={{ marginBottom: 40 }} />
       <Pressable style={styles.button} onPress={() => {changeTheme('light')}}>
-        <View style={styles.radioCircle} />
+        <View style={[
+            styles.radioCircle,
+            theme === 'light' ? { backgroundColor: '#0079ff' } : {}
+        ]} />
         <MyText style={{ fontSize: 25 }}>light</MyText>
       </Pressable>
       <View style={styles.horizontalLine} />
       <Pressable style={styles.button} onPress={() => {changeTheme('dark')}}>
-        <View style={styles.radioCircle} />
+        <View style={[
+            styles.radioCircle,
+            theme === 'dark' ? { backgroundColor: '#0079ff' } : {}
+        ]} />
         <MyText style={{ fontSize: 25 }}>dark</MyText>
       </Pressable>
     </View>
