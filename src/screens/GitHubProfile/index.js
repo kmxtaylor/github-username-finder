@@ -6,10 +6,14 @@ import Header from './Header';
 import InputArea from './InputArea';
 import Card from './Card';
 
+import useIsMountedRef from 'utils/useIsMountedRef';
+
 const GitHubProfile = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [user, setUser] = useState(null);
+
+  const isMountedRef = useIsMountedRef();
 
   const fetchProfile = async (username) => {
     const response = await axios.get(`https://api.github.com/users/${username}`);
@@ -23,7 +27,9 @@ const GitHubProfile = () => {
 
     try {
       const response = await fetchProfile(username);
-      setUser(response);
+      if (isMountedRef.current) {
+        setUser(response);
+      }
       console.log('User: ', response);
     } catch (error) {
       console.error(error);
