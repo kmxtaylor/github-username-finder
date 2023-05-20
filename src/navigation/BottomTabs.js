@@ -27,9 +27,9 @@ const BottomTabs = () => {
       component={GitHubProfile}
       options={{
         title: 'GitHub Profile',
-        // tabBarIcon: (props) => (
-        //   <Ionicons name='ribbon-outline' {...props} />
-        // ),
+        tabBarIcon: (props) => (
+          <Ionicons name='ribbon-outline' {...props} />
+        ),
         // tabBarIcon: () => TabIcon('ribbon-outline'),
         headerShown: false,
       }}
@@ -39,9 +39,9 @@ const BottomTabs = () => {
       component={Settings}
       options={{
         title: 'Settings',
-        // tabBarIcon: (props) => (
-        //   <Ionicons name='settings-outline' {...props} />
-        // ),
+        tabBarIcon: (props) => (
+          <Ionicons name='settings-outline' {...props} />
+        ),
       //  tabBarIcon: () => TabIcon('settings-outline'),
         headerShown: false,
       }}
