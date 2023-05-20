@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { StyleSheet, View, Pressable, ActivityIndicator } from 'react-native';
 
+import Main from 'layouts/Main';
 import Header from './Header';
 import MyText from 'components/MyText';
 
@@ -19,7 +20,7 @@ const Settings = () => {
   }, [theme]);
 
   return (
-    <View>
+    <Main>
       <Header style={{ marginBottom: 40 }} />
       <Pressable style={styles.button} onPress={() => {changeTheme('light')}}>
         <View style={[
@@ -36,7 +37,7 @@ const Settings = () => {
         ]} />
         <MyText style={{ fontSize: 25 }}>dark</MyText>
       </Pressable>
-    </View>
+    </Main>
   );
 };
 

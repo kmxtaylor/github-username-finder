@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { View } from 'react-native';
 import axios from 'axios';
 
+import Main from 'layouts/Main';
 import Header from './Header';
 import InputArea from './InputArea';
 import Card from './Card';
@@ -49,11 +50,11 @@ const GitHubProfile = () => {
   }, []);
 
   return (
-    <View>
+    <Main>
       <Header />
       <InputArea searchUser={searchUser} loading={loading} />
       <Card user={user} error={error} loading={loading} />
-    </View>
+    </Main>
   );
 };
 
