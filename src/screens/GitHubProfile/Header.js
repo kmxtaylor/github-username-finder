@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import { MyTextBold } from 'components/MyText';
+import { MyTextBold } from 'components/themed/MyText';
 
 const Header = () => {
   return (

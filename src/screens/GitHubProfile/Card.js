@@ -1,9 +1,9 @@
 import { View, Image, StyleSheet } from 'react-native';
-import { MyText, MyTextBold } from 'components/MyText';
-import LocationIcon from 'components/LocationIcon';
-import TwitterIcon from 'components/TwitterIcon';
-import WebsiteIcon from 'components/WebsiteIcon';
-import CompanyIcon from 'components/CompanyIcon';
+import { MyText, MyTextBold } from 'components/themed/MyText';
+import LocationIcon from 'components/svgr/LocationIcon';
+import TwitterIcon from 'components/svgr/TwitterIcon';
+import WebsiteIcon from 'components/svgr/WebsiteIcon';
+import CompanyIcon from 'components/svgr/CompanyIcon';
 
 const Card = ({ user, error, loading }) => {
   if (loading) return null;
