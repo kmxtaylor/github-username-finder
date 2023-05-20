@@ -6,7 +6,7 @@ import Header from './Header';
 import InputArea from './InputArea';
 import Card from './Card';
 
-import useIsMountedRef from 'utils/useIsMountedRef';
+import useIsMountedRef from 'hooks/useIsMountedRef';
 
 const GitHubProfile = () => {
   const [loading, setLoading] = useState(false);
