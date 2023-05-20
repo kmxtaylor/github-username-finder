@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { TextInput, View, Pressable, StyleSheet } from 'react-native';
-import { MyTextBold }  from 'components/themed/MyText';
+import { TextBold }  from 'components/themed/Text';
 import SearchIcon from 'components/svgr/SearchIcon';
 
 const InputArea = ({ searchUser, loading }) => {
@@ -37,7 +37,7 @@ const InputArea = ({ searchUser, loading }) => {
         onPress={handleSubmit}
         disabled={username === '' || loading}
       >
-        <MyTextBold>Search</MyTextBold>
+        <TextBold>Search</TextBold>
       </Pressable>
     </View>
   );

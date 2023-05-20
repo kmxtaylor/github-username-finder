@@ -1,5 +1,5 @@
 import { View, Image, StyleSheet } from 'react-native';
-import { MyText, MyTextBold } from 'components/themed/MyText';
+import { Text, TextBold } from 'components/themed/Text';
 import LocationIcon from 'components/svgr/LocationIcon';
 import TwitterIcon from 'components/svgr/TwitterIcon';
 import WebsiteIcon from 'components/svgr/WebsiteIcon';
@@ -25,54 +25,54 @@ const Card = ({ user, error, loading }) => {
         <View
           style={styles.profileHeaderText}
         >
-          <MyTextBold style={{fontSize: 22}}>{user.name}</MyTextBold>
-          <MyText style={{color: '#0079ff'}}>@{user.login}</MyText>
-          <MyText>{user.created_at}</MyText>
+          <TextBold style={{fontSize: 22}}>{user.name}</TextBold>
+          <Text style={{color: '#0079ff'}}>@{user.login}</Text>
+          <Text>{user.created_at}</Text>
         </View>
       </View>
       <View style={styles.bioView}>
-        <MyText style={styles.bioText}>
+        <Text style={styles.bioText}>
           {user.bio ? user.bio : 'This profile has no bio'}
-        </MyText>
+        </Text>
       </View>
       <View style={styles.status}>
         <View>
-          <MyText style={styles.statusLabel}>Repos</MyText>
-          <MyTextBold style={styles.statusNumber}>{user.public_repos}</MyTextBold>
+          <Text style={styles.statusLabel}>Repos</Text>
+          <TextBold style={styles.statusNumber}>{user.public_repos}</TextBold>
         </View>
         <View>
-          <MyText style={styles.statusLabel}>Followers</MyText>
-          <MyTextBold style={styles.statusNumber}>{user.followers}</MyTextBold>
+          <Text style={styles.statusLabel}>Followers</Text>
+          <TextBold style={styles.statusNumber}>{user.followers}</TextBold>
         </View>
         <View>
-          <MyText style={styles.statusLabel}>Following</MyText>
-          <MyTextBold style={styles.statusNumber}>{user.following}</MyTextBold>
+          <Text style={styles.statusLabel}>Following</Text>
+          <TextBold style={styles.statusNumber}>{user.following}</TextBold>
         </View>
       </View>
       <View style={styles.detailsView}>
         <View style={styles.detail}>
           <LocationIcon color={user.location ? 'white': colorUnavailable} />
-          <MyText
+          <Text
             style={{color: user.location ? 'white': colorUnavailable}}
-          >{user.location ? user.location : 'Unavailable'}</MyText>
+          >{user.location ? user.location : 'Unavailable'}</Text>
         </View>
         <View style={styles.detail}>
           <TwitterIcon color={user.twitter_username ? 'white': colorUnavailable} />
-          <MyText
+          <Text
             style={{color: user.twitter_username ? 'white': colorUnavailable}}
-          >{user.twitter_username ? user.twitter_username : 'Unavailable'}</MyText>
+          >{user.twitter_username ? user.twitter_username : 'Unavailable'}</Text>
         </View>
         <View style={styles.detail}>
           <WebsiteIcon color={user.blog ? 'white': colorUnavailable}/>
-          <MyText
+          <Text
             style={{color: user.blog ? 'white': colorUnavailable}}
-          >{user.blog ? user.blog : 'Unavailable'}</MyText>
+          >{user.blog ? user.blog : 'Unavailable'}</Text>
         </View>
         <View style={styles.detail}>
           <CompanyIcon color={user.company ? 'white': colorUnavailable}/>
-          <MyText
+          <Text
             style={{color: user.company ? 'white': colorUnavailable}}
-          >{user.company ? user.company : 'Unavailable'}</MyText>
+          >{user.company ? user.company : 'Unavailable'}</Text>
         </View>
       </View>
     </View>

@@ -3,7 +3,7 @@ import { StyleSheet, View, Pressable, ActivityIndicator } from 'react-native';
 
 import Main from 'layouts/Main';
 import Header from './Header';
-import MyText from 'components/themed/MyText';
+import Text from 'components/themed/Text';
 
 const Settings = () => {
   const [theme, setTheme] = useState('dark');
@@ -27,7 +27,7 @@ const Settings = () => {
             styles.radioCircle,
             theme === 'light' ? { backgroundColor: '#0079ff' } : {}
         ]} />
-        <MyText style={{ fontSize: 25 }}>light</MyText>
+        <Text style={{ fontSize: 25 }}>light</Text>
       </Pressable>
       <View style={styles.horizontalLine} />
       <Pressable style={styles.button} onPress={() => {changeTheme('dark')}}>
@@ -35,7 +35,7 @@ const Settings = () => {
             styles.radioCircle,
             theme === 'dark' ? { backgroundColor: '#0079ff' } : {}
         ]} />
-        <MyText style={{ fontSize: 25 }}>dark</MyText>
+        <Text style={{ fontSize: 25 }}>dark</Text>
       </Pressable>
     </Main>
   );
