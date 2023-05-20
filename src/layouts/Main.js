@@ -1,8 +1,5 @@
 import { SafeAreaView, StyleSheet, StatusBar, ScrollView } from 'react-native';
 
-// import GitHubProfile from 'screens/GitHubProfile';
-// import Settings from 'screens/Settings';
-
 const Main = ({ children }) => {
   return (
     <>
@@ -10,7 +7,6 @@ const Main = ({ children }) => {
       <SafeAreaView style={styles.container}>
         <ScrollView
           style={styles.subContainer}
-          // onLayout={onLayoutRootView}
           keyboardShouldPersistTaps='handled'
         >
           {children}

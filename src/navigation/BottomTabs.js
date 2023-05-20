@@ -1,15 +1,10 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-// import { Ionicons } from '@expo/vector-icons';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 import GitHubProfile from 'screens/GitHubProfile';
 import Settings from 'screens/Settings';
 
 const Tab = createBottomTabNavigator();
-
-// const TabIcon = (name) => {
-//  return <Ionicons name={name} />;
-// };
 
 const BottomTabs = () => {
   return (
@@ -20,8 +15,6 @@ const BottomTabs = () => {
 	       tabBarActiveTintColor: '#0079ff',
 	    }}
 		>
-    {/* <Tab.Screen name='GitHubProfile' ... /> */}
-    {/* <Tab.Screen name='Settings' ... /> */}
 		<Tab.Screen
       name='GitHubProfile'
       component={GitHubProfile}
@@ -30,7 +23,6 @@ const BottomTabs = () => {
         tabBarIcon: (props) => (
           <Ionicons name='ribbon-outline' {...props} />
         ),
-        // tabBarIcon: () => TabIcon('ribbon-outline'),
         headerShown: false,
       }}
     />
@@ -42,7 +34,6 @@ const BottomTabs = () => {
         tabBarIcon: (props) => (
           <Ionicons name='settings-outline' {...props} />
         ),
-      //  tabBarIcon: () => TabIcon('settings-outline'),
         headerShown: false,
       }}
     />
