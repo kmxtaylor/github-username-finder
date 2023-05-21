@@ -31,14 +31,15 @@ const RootNavigation = () => {
 
   useEffect(() => {
     const fetchSettings = async () => {
-      if (fontsLoaded) {
+      if (fontsLoaded && !theme.loading) {
         await SplashScreen.hideAsync();
       }
     };
     fetchSettings();
-  }, [fontsLoaded]);
+  }, [fontsLoaded, theme.loading]);
 
   if (!fontsLoaded) return null;
+  if (theme.loading) return null;
   
   return (
     <NavigationContainer theme={navigationTheme}>
