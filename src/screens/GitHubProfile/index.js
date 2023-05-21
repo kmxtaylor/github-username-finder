@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { View } from 'react-native';
+// import { View } from 'react-native';
 import axios from 'axios';
 
 import Main from 'layouts/Main';

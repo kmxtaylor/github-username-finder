@@ -29,4 +29,5 @@ const styles = StyleSheet.create({
   },
 });
 
+export { Main };
 export default Main;

@@ -1,7 +1,7 @@
 import Colors from 'constants/Colors';
 import { useCustomTheme } from './useCustomTheme';
 
-export const useThemeColors = () => {
+const useThemeColors = () => {
   const customTheme = useCustomTheme();
 
   return {
@@ -9,3 +9,6 @@ export const useThemeColors = () => {
     colors: Colors[customTheme.theme],
   };
 }
+
+export { useThemeColors };
+export default useThemeColors;
