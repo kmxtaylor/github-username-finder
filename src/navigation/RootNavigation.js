@@ -17,13 +17,13 @@ const RootNavigation = () => {
 
   const { colors } = useTheme();
 
-  const MyTheme = {
+  const navigationTheme = {
     ...DefaultTheme,
     colors: {
-      ...DefaultTheme.colors,
-      primary: colors.primary,
-      background: colors.background,
-      text: colors.text,
+      ...DefaultTheme.colors, // imports all colors from theme set to default
+      // primary: colors.primary,
+      // background: colors.background,
+      // text: colors.text,
     },
   };
 
@@ -39,7 +39,7 @@ const RootNavigation = () => {
   if (!fontsLoaded) return null;
   
   return (
-    <NavigationContainer theme={MyTheme}>
+    <NavigationContainer theme={navigationTheme}>
       <BottomTabs />
     </NavigationContainer>
   );
