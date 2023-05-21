@@ -1,17 +1,18 @@
-import { SafeAreaView, StyleSheet, StatusBar, ScrollView } from 'react-native';
+import { StyleSheet, StatusBar, ScrollView } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const Main = ({ children }) => {
   return (
     <>
       <StatusBar barStyle='light-content'></StatusBar>
-      <SafeAreaView style={styles.container}>
+      <SafeAreaProvider style={styles.container}>
         <ScrollView
           style={styles.subContainer}
           keyboardShouldPersistTaps='handled'
         >
           {children}
         </ScrollView>
-      </SafeAreaView>
+      </SafeAreaProvider>
     </>
   );
 };
