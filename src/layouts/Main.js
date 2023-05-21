@@ -1,10 +1,12 @@
-import { StyleSheet, StatusBar, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+import { StatusBar } from 'components/themed/StatusBar';
 
 const Main = ({ children }) => {
   return (
     <>
-      <StatusBar barStyle='light-content'></StatusBar>
+      <StatusBar />
       <SafeAreaProvider style={styles.container}>
         <ScrollView
           style={styles.subContainer}

@@ -5,7 +5,8 @@ import * as SplashScreen from 'expo-splash-screen';
 
 import BottomTabs from './BottomTabs';
 
-import useTheme from 'hooks/useTheme';
+import { useCustomTheme } from 'hooks/useCustomTheme';
+import { useThemeColors } from 'hooks/useThemeColors';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -15,7 +16,8 @@ const RootNavigation = () => {
     'SpaceMono-Bold': require('/../assets/fonts/SpaceMono-Bold.ttf'),
   });
 
-  const { colors } = useTheme();
+  const { theme } = useCustomTheme();
+  const { colors } = useThemeColors();
 
   const navigationTheme = {
     ...DefaultTheme,

@@ -4,7 +4,8 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import GitHubProfile from 'screens/GitHubProfile';
 import Settings from 'screens/Settings';
 
-import useTheme from 'hooks/useTheme';
+import { useCustomTheme } from 'hooks/useCustomTheme';
+import { useThemeColors } from 'hooks/useThemeColors';
 
 const TabBarIcon = ({ name, size=25, color }) => (
   <Ionicons name={name} size={size} color={color} />
@@ -13,7 +14,8 @@ const TabBarIcon = ({ name, size=25, color }) => (
 const Tab = createBottomTabNavigator();
 
 const BottomTabs = () => {
-  const { colors } = useTheme();
+  const { theme } = useCustomTheme();
+  const { colors } = useThemeColors();
 
   return (
     <Tab.Navigator
