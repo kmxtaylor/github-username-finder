@@ -1,7 +1,12 @@
-import Navigation from './navigation/Navigation';
+import { ThemeProvider } from 'contexts/Theme';
+import RootNavigation from './navigation/RootNavigation';
 
 const App = () => {
-  return <Navigation />
+  return (
+    <ThemeProvider>
+      <RootNavigation />
+    </ThemeProvider>
+  );
 };
 
 export default App;

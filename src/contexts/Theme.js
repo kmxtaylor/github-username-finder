@@ -1,9 +1,12 @@
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 import Colors from 'constants/Colors';
 
-const Theme = createContext({
+const Themes = ['light', 'dark'];
+
+const ThemeContext = createContext({
   theme: 'dark',
   setTheme: () => {},
+  colors: Colors['dark'],
 });
 
 const ThemeProvider = ({ children }) => {
@@ -11,8 +14,9 @@ const ThemeProvider = ({ children }) => {
   const colors = Colors[theme];
 
   return (
-    <Theme.Provider value={{ theme, setTheme }}>{children}</Theme.Provider>
+    <ThemeContext.Provider value={{ theme, setTheme, colors }}>{children}</ThemeContext.Provider>
   );
 };
 
-export { Theme, ThemeProvider };
+export { ThemeContext, ThemeProvider, Themes };
+export default ThemeContext;
