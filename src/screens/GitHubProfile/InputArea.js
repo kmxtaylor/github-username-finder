@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { TextInput, View, Pressable, StyleSheet } from 'react-native';
-import { TextBold }  from 'components/themed/Text';
+import { TextBold }  from 'components/themed';
 import SearchIcon from 'components/svgr/SearchIcon';
 
 const InputArea = ({ searchUser, loading }) => {

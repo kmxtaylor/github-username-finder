@@ -3,7 +3,7 @@ import { StyleSheet, View, Pressable, ActivityIndicator } from 'react-native';
 
 import Main from 'layouts/Main';
 import Header from './Header';
-import Text from 'components/themed/Text';
+import Text from 'components/themed';
 
 const Settings = () => {
   const [theme, setTheme] = useState('dark');

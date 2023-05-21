@@ -1,5 +1,5 @@
 import { View, Image, StyleSheet } from 'react-native';
-import { Text, TextBold } from 'components/themed/Text';
+import { Text, TextBold } from 'components/themed';
 import LocationIcon from 'components/svgr/LocationIcon';
 import TwitterIcon from 'components/svgr/TwitterIcon';
 import WebsiteIcon from 'components/svgr/WebsiteIcon';
