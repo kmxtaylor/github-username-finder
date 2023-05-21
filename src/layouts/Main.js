@@ -1,20 +1,26 @@
-import { StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { StatusBar } from 'components/themed';
 
+import { useThemeColors } from 'hooks/useThemeColors';
+
 const Main = ({ children }) => {
+  const { colors } = useThemeColors();
+
   return (
     <>
       <StatusBar />
-      <SafeAreaProvider style={styles.container}>
-        <ScrollView
-          style={styles.subContainer}
-          keyboardShouldPersistTaps='handled'
-        >
-          {children}
-        </ScrollView>
-      </SafeAreaProvider>
+      {/* <SafeAreaProvider
+        style={[styles.container, {backgroundColor: colors.background}]}
+      > */}
+      {/* may need to adjust element layering */}
+      <SafeAreaView
+        style={[styles.container, {backgroundColor: colors.background}]}
+      >
+        {children}
+      </SafeAreaView>
+      {/* </SafeAreaProvider> */}
     </>
   );
 };
@@ -22,7 +28,7 @@ const Main = ({ children }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#141d2f',
+    // backgroundColor: '#141d2f',
   },
   subContainer: {
     padding: 20,
