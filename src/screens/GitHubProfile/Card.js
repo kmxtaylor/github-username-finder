@@ -15,7 +15,7 @@ const Card = ({ user, error, loading }) => {
   const colorUnavailable = '#4b6a9b';
 
   return (
-    <View style={styles.card}>
+    <View style={styles.card} testID='card'>
       <View style={styles.profileTop}>
         <Image
           style={styles.avatar}
