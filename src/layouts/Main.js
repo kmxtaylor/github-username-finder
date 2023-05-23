@@ -29,10 +29,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     // backgroundColor: '#141d2f',
+    padding: 20, // may need to move
   },
-  subContainer: {
-    padding: 20,
-  },
+  // subContainer: {
+  //   padding: 20,
+  // },
 });
 
 export { Main };
