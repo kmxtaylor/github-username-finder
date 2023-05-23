@@ -1,15 +1,30 @@
 import { View, StyleSheet, Pressable } from 'react-native'; // will replace w/ themed version
 import { TextBold, Icon } from 'components/themed';
 
+import { useProfiles } from 'hooks/useProfiles';
+
 const Header = () => {
+  const { profiles, activeProfile } = useProfiles();
+
+  const profileSaved = () => {
+    const res = profiles.some(profile => profile.name === activeProfile);
+    // console.log(res);
+    return res;
+  };
+
   return (
     <View style={styles.header} testID='header'>
       <TextBold style={styles.title} testID='test-header-text'>
         devfinder
       </TextBold>
-      <Pressable>
-        <Icon name='add-circle-outline' />
-      </Pressable>
+      { profileSaved() ? (
+          <Icon name='checkmark-circle' color='green' />
+        ) : (
+          <Pressable>
+            <Icon name='add-circle-outline' />
+          </Pressable>
+        )
+      }
     </View>
   );
 };
