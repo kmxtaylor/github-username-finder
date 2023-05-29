@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-// import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 import axios from 'axios';
 
 import Main from 'layouts/Main';
@@ -52,8 +52,10 @@ const GitHubProfile = () => {
   return (
     <Main>
       <Header />
-      <InputArea searchUser={searchUser} loading={loading} />
-      <Card user={user} error={error} loading={loading} />
+      <ScrollView keyboardShouldPersistTaps='handled'>
+        <InputArea searchUser={searchUser} loading={loading} />
+        <Card user={user} error={error} loading={loading} />
+      </ScrollView>
     </Main>
   );
 };

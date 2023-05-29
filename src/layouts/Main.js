@@ -18,7 +18,9 @@ const Main = ({ children }) => {
       <SafeAreaView
         style={[styles.container, {backgroundColor: colors.background}]}
       >
-        {children}
+        {/* <ScrollView style={{ padding: 20 }} keyboardShouldPersistTaps='handled'> */}
+          {children}
+        {/* </ScrollView> */}
       </SafeAreaView>
       {/* </SafeAreaProvider> */}
     </>
@@ -29,7 +31,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     // backgroundColor: '#141d2f',
-    padding: 20, // may need to move
+    padding: 20, // may need to move to individual Headers and ScrollViews
   },
   // subContainer: {
   //   padding: 20,

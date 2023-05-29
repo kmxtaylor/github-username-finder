@@ -37,8 +37,8 @@ const Settings = () => {
 
   return (
     <Layout>
-      <Header style={{ padding: 20 }} />
-      <ScrollView style={{ padding: 20 }} keyboardShouldPersistTaps='handled'>
+      <Header />
+      <ScrollView keyboardShouldPersistTaps='handled'>
         {Themes.map((key, index) => (
           <Fragment key={key}>
             <ThemeRow onPress={() => setTheme(key)} checked={theme === key}>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-// import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 
 import Main from 'layouts/Main';
 import Header from './Header';
@@ -22,7 +22,8 @@ const GitHubProfile = () => {
   return (
     <Main>
       <Header />
-      
+      <ScrollView style={{ padding: 20 }} keyboardShouldPersistTaps='handled'>
+      </ScrollView>
     </Main>
   );
 };
