@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: '#1e2a47',
     borderRadius: 10,
-    padding: 10,
+    padding: 15,
     marginBottom: 20,
     flexDirection: 'row',
   },
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     marginRight: 20,
+    borderRadius: 50, // make pic circle
   },
   name: {
     fontSize: 18,
