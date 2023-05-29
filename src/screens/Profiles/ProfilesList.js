@@ -1,9 +1,22 @@
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import ProfilesListItem from './ProfilesListItem';
 
-const ProfilesList = ({...props}) => {
+import useProfiles from 'hooks/useProfiles';
+
+const ProfilesList = ({ ...props }) => {
+  const { profiles } = useProfiles();
+
   return (
-    <View />
+    <View style={styles.list}>
+      {profiles.map((profile) => (
+        <ProfilesListItem key={profile.login} profile={profile} />
+      ))}
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+
+});
 
 export default ProfilesList;
