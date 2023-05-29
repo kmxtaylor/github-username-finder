@@ -3,7 +3,7 @@ import { TextBold, Icon } from 'components/themed';
 
 import { useProfiles } from 'hooks/useProfiles';
 
-const Header = ({user}) => {
+const Header = ({user = null}) => {
   const { profiles, setProfiles, activeProfile } = useProfiles();
 
   const profileSaved = () => {
@@ -35,7 +35,7 @@ const Header = ({user}) => {
       <TextBold style={styles.title} testID='test-header-text'>
         devfinder
       </TextBold>
-      { profileSaved() ? (
+      { user && profileSaved() ? (
           <Pressable onPress={unsaveProfile}>
             <Icon name='checkmark-circle' color='green' />
           </Pressable>
