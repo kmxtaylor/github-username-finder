@@ -51,7 +51,7 @@ const GitHubProfile = () => {
 
   return (
     <Main>
-      <Header />
+      <Header user={user} />
       <ScrollView keyboardShouldPersistTaps='handled'>
         <InputArea searchUser={searchUser} loading={loading} />
         <Card user={user} error={error} loading={loading} />

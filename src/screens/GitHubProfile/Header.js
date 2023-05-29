@@ -3,13 +3,25 @@ import { TextBold, Icon } from 'components/themed';
 
 import { useProfiles } from 'hooks/useProfiles';
 
-const Header = () => {
-  const { profiles, activeProfile } = useProfiles();
+const Header = ({user}) => {
+  const { profiles, setProfiles, activeProfile } = useProfiles();
 
   const profileSaved = () => {
-    const res = profiles.some(profile => profile.name === activeProfile);
+    console.log('profiles: ', profiles);
+    // console.log('activeProfile: ', activeProfile);
+    const res = profiles.some(profile => profile.name === user.name);
     // console.log(res);
     return res;
+  };
+
+  const addProfile = () => {
+    setProfiles((currProfiles) => {
+      return [...currProfiles, {
+        login: user.login,
+        avatar_url: user.avatar_url,
+        name: user.name,
+      }];
+    });
   };
 
   return (
@@ -20,7 +32,7 @@ const Header = () => {
       { profileSaved() ? (
           <Icon name='checkmark-circle' color='green' />
         ) : (
-          <Pressable>
+          <Pressable onPress={addProfile}>
             <Icon name='add-circle-outline' />
           </Pressable>
         )
