@@ -3,13 +3,13 @@ import { TextBold, Icon } from 'components/themed';
 
 import { useProfiles } from 'hooks/useProfiles';
 
-const Header = ({user = null}) => {
+const Header = () => {
   const { profiles, setProfiles, activeProfile } = useProfiles();
 
   const profileSaved = () => {
     console.log('profiles: ', profiles);
     // console.log('activeProfile: ', activeProfile);
-    const res = profiles.some(profile => profile.name === user.name);
+    const res = profiles.some(profile => profile.name === activeProfile.name);
     // console.log(res);
     return res;
   };
@@ -17,16 +17,16 @@ const Header = ({user = null}) => {
   const saveProfile = () => {
     setProfiles((currProfiles) => {
       return [...currProfiles, {
-        login: user.login,
-        avatar_url: user.avatar_url,
-        name: user.name,
+        login: activeProfile.login,
+        avatar_url: activeProfile.avatar_url,
+        name: activeProfile.name,
       }];
     });
   };
 
   const unsaveProfile = () => {
     setProfiles((currProfiles) => {
-      return currProfiles.filter(profile => profile.name !== user.name);
+      return currProfiles.filter(profile => profile.name !== activeProfile.name);
     });
   };
 
@@ -35,7 +35,7 @@ const Header = ({user = null}) => {
       <TextBold style={styles.title} testID='test-header-text'>
         devfinder
       </TextBold>
-      { user && profileSaved() ? (
+      { activeProfile && profileSaved() ? (
           <Pressable onPress={unsaveProfile}>
             <Icon name='checkmark-circle' color='green' />
           </Pressable>

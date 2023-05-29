@@ -22,7 +22,7 @@ const GitHubProfile = () => {
   return (
     <Main>
       <Header />
-      <ScrollView style={{ padding: 20 }} keyboardShouldPersistTaps='handled'>
+      <ScrollView style={{ paddingVertical: 20 }} keyboardShouldPersistTaps='handled'>
         <ProfilesList />
       </ScrollView>
     </Main>

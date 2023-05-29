@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#1e2a47',
     borderRadius: 10,
     padding: 10,
-    marginBottom: 30,
+    marginBottom: 20,
     flexDirection: 'row',
   },
   avatar: {
