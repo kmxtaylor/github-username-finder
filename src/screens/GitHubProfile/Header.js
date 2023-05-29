@@ -14,7 +14,7 @@ const Header = ({user}) => {
     return res;
   };
 
-  const addProfile = () => {
+  const saveProfile = () => {
     setProfiles((currProfiles) => {
       return [...currProfiles, {
         login: user.login,
@@ -24,15 +24,23 @@ const Header = ({user}) => {
     });
   };
 
+  const unsaveProfile = () => {
+    setProfiles((currProfiles) => {
+      return currProfiles.filter(profile => profile.name !== user.name);
+    });
+  };
+
   return (
     <View style={styles.header} testID='header'>
       <TextBold style={styles.title} testID='test-header-text'>
         devfinder
       </TextBold>
       { profileSaved() ? (
-          <Icon name='checkmark-circle' color='green' />
+          <Pressable onPress={unsaveProfile}>
+            <Icon name='checkmark-circle' color='green' />
+          </Pressable>
         ) : (
-          <Pressable onPress={addProfile}>
+          <Pressable onPress={saveProfile}>
             <Icon name='add-circle-outline' />
           </Pressable>
         )
