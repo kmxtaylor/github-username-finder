@@ -3,6 +3,7 @@ import { ScrollView } from 'react-native';
 
 import Main from 'layouts/Main';
 import Header from './Header';
+import ProfilesList from './ProfilesList';
 
 import useIsMountedRef from 'hooks/useIsMountedRef';
 
@@ -18,11 +19,11 @@ const GitHubProfile = () => {
     return response.data;
   };
 
-
   return (
     <Main>
       <Header />
       <ScrollView style={{ padding: 20 }} keyboardShouldPersistTaps='handled'>
+        <ProfilesList />
       </ScrollView>
     </Main>
   );
