@@ -4,13 +4,13 @@ import { createContext, useState, useEffect } from 'react';
 const ProfilesContext = createContext({
   profiles: [],
   setProfiles: () => {},
-  activeProfile: {},
-  setActiveProfile: () => {},
+  activeUsername: 'octocat',
+  setActiveUsername: () => {},
 });
 
 const ProfilesProvider = ({ children }) => {
   const [profiles, setProfiles] = useState([]);
-  const [activeProfile, setActiveProfile] = useState({});
+  const [activeUsername, setActiveUsername] = useState('octocat');
 
   // update local profiles when profiles change
   useEffect(() => {
@@ -30,7 +30,7 @@ const ProfilesProvider = ({ children }) => {
   
   return (
     <ProfilesContext.Provider
-      value={{profiles, setProfiles, activeProfile, setActiveProfile}}
+      value={{profiles, setProfiles, activeUsername, setActiveUsername}}
     >
       {children}
     </ProfilesContext.Provider>

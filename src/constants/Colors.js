@@ -15,6 +15,9 @@ const Themes = {
 
     tabBarActive: '#E71D36',
     tabBarInactive: '#84929E',
+
+    deleteBtn: '#f00',
+    accessBtn: '#006400',
   },
   dark: {
     text: white,
@@ -28,6 +31,9 @@ const Themes = {
 
     tabBarActive: '#FF9F1C',
     tabBarInactive: '#5A6772',
+
+    deleteBtn: '#f00',
+    accessBtn: '#006400',
   },
 };
 

@@ -13,53 +13,65 @@ import useProfiles from 'hooks/useProfiles';
 const GitHubProfile = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  // const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null);
 
   const isMountedRef = useIsMountedRef();
-  const { activeProfile, setActiveProfile } = useProfiles();
+  const { activeUsername, setActiveUsername, setProfiles } = useProfiles();
 
-  const fetchProfile = async (username) => {
-    const response = await axios.get(`https://api.github.com/users/${username}`);
+  const fetchProfile = async () => {
+    // const response = await axios.get(`https://api.github.com/users/${username}`);
+    const response = await axios.get(`https://api.github.com/users/${activeUsername}`);
     return response.data;
   };
 
-  const searchUser = async (username) => {
+  useEffect(() => {
+    const preloadProfile = async () => {
+      const profileFromServer = await fetchProfile();
+      // setUser(profileFromServer);
+      setUser(profileFromServer);
+      setActiveUsername(profileFromServer.login);
+    };
+
+    preloadProfile();
+  }, []);
+
+  const searchUser = async () => {
     setLoading(true);
     setError(null);
-    // setUser(null);
-    setActiveProfile(null);
+    setUser(null);
+    // setActiveProfile(null);
+    // console.log('username searched˙', username);
 
     try {
-      const response = await fetchProfile(username);
+      const responseData = await fetchProfile();
       if (isMountedRef.current) {
-        // setUser(response.data);
-        setActiveProfile(response.data);
+        setUser(responseData);
+        // setActiveProfile(responseData);
       }
-      console.log('User: ', response.data);
+      // console.log('Fetched user: ', responseData);
     } catch (error) {
       console.error(error);
+      console.error(JSON.stringify(error, null, 2));
       setError(error.message);
     }
 
     setLoading(false);
   };
 
+  // when activeUsername changes, fetch the corresponding profile
   useEffect(() => {
-    const getProfile = async () => {
-      const profileFromServer = await fetchProfile('octocat');
-      // setUser(profileFromServer);
-      setActiveProfile(profileFromServer);
-    };
-
-    getProfile();
-  }, []);
+    if (activeUsername) {
+      // console.log('activeUsername changed: ', activeUsername);
+      searchUser(activeUsername);
+    }
+  }, [activeUsername]);
 
   return (
     <Main>
-      <Header />
+      <Header activeUser={user} />
       <ScrollView keyboardShouldPersistTaps='handled'>
         <InputArea searchUser={searchUser} loading={loading} />
-        <Card error={error} loading={loading} />
+        <Card activeUser={user} error={error} loading={loading} />
       </ScrollView>
     </Main>
   );

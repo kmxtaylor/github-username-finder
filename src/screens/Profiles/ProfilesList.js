@@ -1,22 +1,32 @@
-import { StyleSheet, View } from 'react-native';
-import ProfilesListItem from './ProfilesListItem';
-
+import SwipeToDelete from './SwipeToDelete';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import useProfiles from 'hooks/useProfiles';
 
-const ProfilesList = ({ ...props }) => {
-  const { profiles } = useProfiles();
+const ProfilesList = ({ navigation, ...rest }) => {
+  // one state that stores all profiles
+  const { profiles, setProfiles } = useProfiles();
+
+  // delete a user profile from the list
+  const deleteProfile = (index) => {
+    // update the state
+    setProfiles((prevProfiles) => {
+      const newProfiles = prevProfiles.filter((_, i) => i !== index);
+      return newProfiles;
+    });
+  };
 
   return (
-    <View style={styles.list}>
-      {profiles.map((profile) => (
-        <ProfilesListItem key={profile.login} profile={profile} />
+    <GestureHandlerRootView style={{ flex: 1, marginBottom: 30 }} {...rest}>
+      {profiles.map((profile, i) => (
+        <SwipeToDelete
+          navigation={navigation}
+          profile={profile}
+          onDelete={() => deleteProfile(i)}
+          key={i + profile.login}
+        />
       ))}
-    </View>
+    </GestureHandlerRootView>
   );
 };
-
-const styles = StyleSheet.create({
-
-});
 
 export default ProfilesList;
