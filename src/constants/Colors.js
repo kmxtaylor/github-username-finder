@@ -4,8 +4,8 @@ const Themes = {
   light: {
     text: '#2b3442',
     textMidContrast: '#4b6a9b',
-    textLowContrast: '#697c9a',
-    textSearchPlaceholder: '#4b6a9b',
+    // textLowContrast: '#697c9a',
+    // textSearchPlaceholder: '#4b6a9b',
 
     background: '#f6f8ff',
     backgroundSecondary: '#fefefe',

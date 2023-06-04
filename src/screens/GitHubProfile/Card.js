@@ -6,9 +6,11 @@ import WebsiteIcon from 'components/svgr/WebsiteIcon';
 import CompanyIcon from 'components/svgr/CompanyIcon';
 
 import useProfiles from 'hooks/useProfiles';
+import useCustomTheme from 'hooks/useCustomTheme';
 
 const Card = ({ error, loading }) => {
   const { activeProfile } = useProfiles();
+  const { colors } = useCustomTheme();
   
   if (loading) return null;
   
@@ -16,8 +18,7 @@ const Card = ({ error, loading }) => {
   
   else if (!activeProfile) return null;
   
-  const colorUnavailable = '#4b6a9b';
-  
+  const colorUnavailable = colors.textMidContrast;
   
   return (
     <ViewContrast style={styles.card} testID='card'>
@@ -31,12 +32,12 @@ const Card = ({ error, loading }) => {
           style={styles.profileHeaderText}
         >
           <TextBold style={{fontSize: 22}}>{activeProfile.name}</TextBold>
-          <Text style={{color: '#0079ff'}}>@{activeProfile.login}</Text>
+          <Text style={{color: colors.primary}}>@{activeProfile.login}</Text>
           <Text>{activeProfile.created_at}</Text>
         </ViewPlain>
       </ViewPlain>
       <ViewPlain style={styles.bioView}>
-        <Text style={styles.bioText}>
+        <Text style={{color: colors.textMidContrast}}>
           {activeProfile.bio ? activeProfile.bio : 'This profile has no bio'}
         </Text>
       </ViewPlain>
@@ -56,27 +57,27 @@ const Card = ({ error, loading }) => {
       </View>
       <ViewPlain style={styles.detailsView}>
         <ViewPlain style={styles.detail}>
-          <LocationIcon color={activeProfile.location ? 'white': colorUnavailable} />
+          <LocationIcon color={activeProfile.location ? colors.text: colorUnavailable} />
           <Text
-            style={{color: activeProfile.location ? 'white': colorUnavailable}}
+            style={{color: activeProfile.location ? colors.text: colorUnavailable}}
           >{activeProfile.location ? activeProfile.location : 'Unavailable'}</Text>
         </ViewPlain>
         <ViewPlain style={styles.detail}>
-          <TwitterIcon color={activeProfile.twitter_username ? 'white': colorUnavailable} />
+          <TwitterIcon color={activeProfile.twitter_username ? colors.text: colorUnavailable} />
           <Text
-            style={{color: activeProfile.twitter_username ? 'white': colorUnavailable}}
+            style={{color: activeProfile.twitter_username ? colors.text: colorUnavailable}}
           >{activeProfile.twitter_username ? activeProfile.twitter_username : 'Unavailable'}</Text>
         </ViewPlain>
         <ViewPlain style={styles.detail}>
-          <WebsiteIcon color={activeProfile.blog ? 'white': colorUnavailable}/>
+          <WebsiteIcon color={activeProfile.blog ? colors.text: colorUnavailable}/>
           <Text
-            style={{color: activeProfile.blog ? 'white': colorUnavailable}}
+            style={{color: activeProfile.blog ? colors.text: colorUnavailable}}
           >{activeProfile.blog ? activeProfile.blog : 'Unavailable'}</Text>
         </ViewPlain>
         <ViewPlain style={styles.detail}>
-          <CompanyIcon color={activeProfile.company ? 'white': colorUnavailable}/>
+          <CompanyIcon color={activeProfile.company ? colors.text: colorUnavailable}/>
           <Text
-            style={{color: activeProfile.company ? 'white': colorUnavailable}}
+            style={{color: activeProfile.company ? colors.text: colorUnavailable}}
           >{activeProfile.company ? activeProfile.company : 'Unavailable'}</Text>
         </ViewPlain>
       </ViewPlain>
@@ -86,14 +87,12 @@ const Card = ({ error, loading }) => {
 
 const styles = StyleSheet.create({
   card: {
-    // backgroundColor: '#1e2a47',
     borderRadius: 10,
     padding: 30,
     marginTop: 30,
   },
   profileTop: {
     flexDirection: 'row',
-    // backgroundColor: '#1e2a47',
   },
   avatar: {
     width: 80,
@@ -105,14 +104,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
     paddingVertical: 10,
   },
-  bioText: {
-    color: '#697c9a'
-  },
   status: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    // backgroundColor: '#141d2f',
     borderRadius: 10,
     padding: 20,
     marginTop: 20,

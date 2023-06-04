@@ -31,7 +31,6 @@ const Main = ({ children }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: '#141d2f',
     padding: 20, // may need to move to individual Headers and ScrollViews
   },
   // subContainer: {
