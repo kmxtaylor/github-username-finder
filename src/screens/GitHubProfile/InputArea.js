@@ -4,14 +4,18 @@ import { TextBold, ViewContrast, ViewPlain }  from 'components/themed';
 import SearchIcon from 'components/svgr/SearchIcon';
 
 import useCustomTheme from 'hooks/useCustomTheme';
+import useProfiles from 'hooks/useProfiles';
 
 const InputArea = ({ searchUser, loading }) => {
   const { colors } = useCustomTheme();
   const [username, setUsername] = useState('');
 
+  const { setActiveUsername } = useProfiles();
+
   const handleSubmit = () => {
-    // console.log('submitting username: ', username);
-    searchUser(username); // async, but don't need to wait for its completion
+    console.log('submitting username: ', username);
+    setActiveUsername(username);
+    // searchUser(username); // async, but don't need to wait for its completion
   };
 
   return (

@@ -3,13 +3,13 @@ import { TextBold, Icon, ViewPlain } from 'components/themed';
 
 import { useProfiles } from 'hooks/useProfiles';
 
-const Header = () => {
-  const { profiles, setProfiles, activeProfile } = useProfiles();
+const Header = ({ activeUser, ...rest }) => {
+  const { profiles, setProfiles } = useProfiles();
 
   const profileSaved = () => {
     console.log('profiles: ', profiles);
-    // console.log('activeProfile: ', activeProfile);
-    const res = profiles.some(profile => profile.name === activeProfile.name);
+    // console.log('activeUser: ', activeUser);
+    const res = profiles.some(profile => profile.name === activeUser.name);
     // console.log(res);
     return res;
   };
@@ -17,25 +17,25 @@ const Header = () => {
   const saveProfile = () => {
     setProfiles((currProfiles) => {
       return [...currProfiles, {
-        login: activeProfile.login,
-        avatar_url: activeProfile.avatar_url,
-        name: activeProfile.name,
+        login: activeUser.login,
+        avatar_url: activeUser.avatar_url,
+        name: activeUser.name,
       }];
     });
   };
 
   const unsaveProfile = () => {
     setProfiles((currProfiles) => {
-      return currProfiles.filter(profile => profile.name !== activeProfile.name);
+      return currProfiles.filter(profile => profile.name !== activeUser.name);
     });
   };
 
   return (
-    <ViewPlain style={styles.header} testID='header'>
+    <ViewPlain style={styles.header} testID='header' {...rest}>
       <TextBold style={styles.title} testID='test-header-text'>
         devfinder
       </TextBold>
-      { activeProfile && profileSaved() ? (
+      { activeUser && profileSaved() ? (
           <Pressable onPress={unsaveProfile}>
             <Icon name='checkmark-circle' color='green' />
           </Pressable>

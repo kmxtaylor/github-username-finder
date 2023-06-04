@@ -8,15 +8,15 @@ import CompanyIcon from 'components/svgr/CompanyIcon';
 import useProfiles from 'hooks/useProfiles';
 import useCustomTheme from 'hooks/useCustomTheme';
 
-const Card = ({ error, loading }) => {
-  const { activeProfile } = useProfiles();
+const Card = ({ activeUser, error, loading }) => {
+  // const { activeProfile } = useProfiles();
   const { colors } = useCustomTheme();
   
   if (loading) return null;
   
   else if (loading) return null;
   
-  else if (!activeProfile) return null;
+  else if (!activeUser) return null;
   
   const colorUnavailable = colors.textMidContrast;
   
@@ -25,60 +25,60 @@ const Card = ({ error, loading }) => {
       <ViewPlain style={styles.profileTop}>
         <Image
           style={styles.avatar}
-          source={{ uri: activeProfile.avatar_url }}
+          source={{ uri: activeUser.avatar_url }}
           // source={require('../../assets/images/image-user-placeholder.png')}
         />
         <ViewPlain
           style={styles.profileHeaderText}
         >
-          <TextBold style={{fontSize: 22}}>{activeProfile.name}</TextBold>
-          <Text style={{color: colors.primary}}>@{activeProfile.login}</Text>
-          <Text>{activeProfile.created_at}</Text>
+          <TextBold style={{fontSize: 22}}>{activeUser.name}</TextBold>
+          <Text style={{color: colors.primary}}>@{activeUser.login}</Text>
+          <Text>{activeUser.created_at}</Text>
         </ViewPlain>
       </ViewPlain>
       <ViewPlain style={styles.bioView}>
         <Text style={{color: colors.textMidContrast}}>
-          {activeProfile.bio ? activeProfile.bio : 'This profile has no bio'}
+          {activeUser.bio ? activeUser.bio : 'This profile has no bio'}
         </Text>
       </ViewPlain>
       <View style={styles.status}>
         <ViewPlain>
           <Text style={styles.statusLabel}>Repos</Text>
-          <TextBold style={styles.statusNumber}>{activeProfile.public_repos}</TextBold>
+          <TextBold style={styles.statusNumber}>{activeUser.public_repos}</TextBold>
         </ViewPlain>
         <ViewPlain>
           <Text style={styles.statusLabel}>Followers</Text>
-          <TextBold style={styles.statusNumber}>{activeProfile.followers}</TextBold>
+          <TextBold style={styles.statusNumber}>{activeUser.followers}</TextBold>
         </ViewPlain>
         <ViewPlain>
           <Text style={styles.statusLabel}>Following</Text>
-          <TextBold style={styles.statusNumber}>{activeProfile.following}</TextBold>
+          <TextBold style={styles.statusNumber}>{activeUser.following}</TextBold>
         </ViewPlain>
       </View>
       <ViewPlain style={styles.detailsView}>
         <ViewPlain style={styles.detail}>
-          <LocationIcon color={activeProfile.location ? colors.text: colorUnavailable} />
+          <LocationIcon color={activeUser.location ? colors.text: colorUnavailable} />
           <Text
-            style={{color: activeProfile.location ? colors.text: colorUnavailable}}
-          >{activeProfile.location ? activeProfile.location : 'Unavailable'}</Text>
+            style={{color: activeUser.location ? colors.text: colorUnavailable}}
+          >{activeUser.location ? activeUser.location : 'Unavailable'}</Text>
         </ViewPlain>
         <ViewPlain style={styles.detail}>
-          <TwitterIcon color={activeProfile.twitter_username ? colors.text: colorUnavailable} />
+          <TwitterIcon color={activeUser.twitter_username ? colors.text: colorUnavailable} />
           <Text
-            style={{color: activeProfile.twitter_username ? colors.text: colorUnavailable}}
-          >{activeProfile.twitter_username ? activeProfile.twitter_username : 'Unavailable'}</Text>
+            style={{color: activeUser.twitter_username ? colors.text: colorUnavailable}}
+          >{activeUser.twitter_username ? activeUser.twitter_username : 'Unavailable'}</Text>
         </ViewPlain>
         <ViewPlain style={styles.detail}>
-          <WebsiteIcon color={activeProfile.blog ? colors.text: colorUnavailable}/>
+          <WebsiteIcon color={activeUser.blog ? colors.text: colorUnavailable}/>
           <Text
-            style={{color: activeProfile.blog ? colors.text: colorUnavailable}}
-          >{activeProfile.blog ? activeProfile.blog : 'Unavailable'}</Text>
+            style={{color: activeUser.blog ? colors.text: colorUnavailable}}
+          >{activeUser.blog ? activeUser.blog : 'Unavailable'}</Text>
         </ViewPlain>
         <ViewPlain style={styles.detail}>
-          <CompanyIcon color={activeProfile.company ? colors.text: colorUnavailable}/>
+          <CompanyIcon color={activeUser.company ? colors.text: colorUnavailable}/>
           <Text
-            style={{color: activeProfile.company ? colors.text: colorUnavailable}}
-          >{activeProfile.company ? activeProfile.company : 'Unavailable'}</Text>
+            style={{color: activeUser.company ? colors.text: colorUnavailable}}
+          >{activeUser.company ? activeUser.company : 'Unavailable'}</Text>
         </ViewPlain>
       </ViewPlain>
     </ViewContrast>
@@ -93,6 +93,9 @@ const styles = StyleSheet.create({
   },
   profileTop: {
     flexDirection: 'row',
+  },
+  profileHeaderText: {
+    flex: 1,
   },
   avatar: {
     width: 80,
