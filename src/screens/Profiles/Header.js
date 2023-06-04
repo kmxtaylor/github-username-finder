@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <ViewPlain style={styles.header} testID='header'>
       <TextBold style={styles.title} testID='test-header-text'>
-        devfinder: Themes
+        devfinder: Profiles
       </TextBold>
     </ViewPlain>
   );

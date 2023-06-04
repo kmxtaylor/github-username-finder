@@ -1,9 +1,12 @@
 import { useState } from 'react';
-import { TextInput, View, Pressable, StyleSheet } from 'react-native';
-import { MyTextBold }  from 'components/MyText';
-import SearchIcon from 'components/SearchIcon';
+import { TextInput, Pressable, StyleSheet } from 'react-native';
+import { TextBold, ViewContrast, ViewPlain }  from 'components/themed';
+import SearchIcon from 'components/svgr/SearchIcon';
+
+import useCustomTheme from 'hooks/useCustomTheme';
 
 const InputArea = ({ searchUser, loading }) => {
+  const { colors } = useCustomTheme();
   const [username, setUsername] = useState('');
 
   const handleSubmit = () => {
@@ -12,8 +15,8 @@ const InputArea = ({ searchUser, loading }) => {
   };
 
   return (
-    <View style={styles.InputArea}>
-      <View
+    <ViewContrast style={styles.InputArea}>
+      <ViewPlain
         style={styles.input}
       >
         <SearchIcon style={styles.searchIcon}/>
@@ -26,20 +29,20 @@ const InputArea = ({ searchUser, loading }) => {
           value={username}
           keyboardType='default'
           onChangeText={setUsername}
-          placeholderTextColor={'#fff'}
+          placeholderTextColor={colors.textMidContrast}s
           // autoCapitalize='none'
           // autoCorrect={false}
-          style={{color: '#fff', fontFamily: 'SpaceMono-Regular'}}
+          style={{color: colors.text, fontFamily: 'SpaceMono-Regular'}}
         />
-      </View>
+      </ViewPlain>
       <Pressable
-        style={styles.button}
+        style={[styles.button, {backgroundColor: colors.primary}]}
         onPress={handleSubmit}
         disabled={username === '' || loading}
       >
-        <MyTextBold>Search</MyTextBold>
+        <TextBold>Search</TextBold>
       </Pressable>
-    </View>
+    </ViewContrast>
   );
 };
 
@@ -48,13 +51,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center', // only applies to direct children
-    backgroundColor: '#1e2a47',
     borderRadius: 10,
     padding: 10,
     marginTop: 40,
   },
   input: {
-    // backgroundColor: '#',
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -67,7 +68,6 @@ const styles = StyleSheet.create({
   button: {
     height: 45,
     width: 80,
-    backgroundColor: '#0079ff',
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',

@@ -1,19 +1,22 @@
 import { useState, useEffect } from 'react';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 import axios from 'axios';
 
+import Main from 'layouts/Main';
 import Header from './Header';
 import InputArea from './InputArea';
 import Card from './Card';
 
-import useIsMountedRef from 'utils/useIsMountedRef';
+import useIsMountedRef from 'hooks/useIsMountedRef';
+import useProfiles from 'hooks/useProfiles';
 
 const GitHubProfile = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
 
   const isMountedRef = useIsMountedRef();
+  const { activeProfile, setActiveProfile } = useProfiles();
 
   const fetchProfile = async (username) => {
     const response = await axios.get(`https://api.github.com/users/${username}`);
@@ -23,14 +26,16 @@ const GitHubProfile = () => {
   const searchUser = async (username) => {
     setLoading(true);
     setError(null);
-    setUser(null);
+    // setUser(null);
+    setActiveProfile(null);
 
     try {
       const response = await fetchProfile(username);
       if (isMountedRef.current) {
-        setUser(response);
+        // setUser(response.data);
+        setActiveProfile(response.data);
       }
-      console.log('User: ', response);
+      console.log('User: ', response.data);
     } catch (error) {
       console.error(error);
       setError(error.message);
@@ -42,18 +47,21 @@ const GitHubProfile = () => {
   useEffect(() => {
     const getProfile = async () => {
       const profileFromServer = await fetchProfile('octocat');
-      setUser(profileFromServer);
+      // setUser(profileFromServer);
+      setActiveProfile(profileFromServer);
     };
 
     getProfile();
   }, []);
 
   return (
-    <View>
+    <Main>
       <Header />
-      <InputArea searchUser={searchUser} loading={loading} />
-      <Card user={user} error={error} loading={loading} />
-    </View>
+      <ScrollView keyboardShouldPersistTaps='handled'>
+        <InputArea searchUser={searchUser} loading={loading} />
+        <Card error={error} loading={loading} />
+      </ScrollView>
+    </Main>
   );
 };
 
