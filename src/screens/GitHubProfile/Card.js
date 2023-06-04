@@ -94,6 +94,9 @@ const styles = StyleSheet.create({
   profileTop: {
     flexDirection: 'row',
   },
+  profileHeaderText: {
+    flex: 1,
+  },
   avatar: {
     width: 80,
     height: 80,
