@@ -1,5 +1,5 @@
-import { View, Image, StyleSheet } from 'react-native';
-import { Text, TextBold } from 'components/themed';
+import { Image, StyleSheet } from 'react-native';
+import { Text, TextBold, View, ViewPlain, ViewContrast } from 'components/themed';
 import LocationIcon from 'components/svgr/LocationIcon';
 import TwitterIcon from 'components/svgr/TwitterIcon';
 import WebsiteIcon from 'components/svgr/WebsiteIcon';
@@ -20,73 +20,73 @@ const Card = ({ error, loading }) => {
   
   
   return (
-    <View style={styles.card} testID='card'>
-      <View style={styles.profileTop}>
+    <ViewContrast style={styles.card} testID='card'>
+      <ViewPlain style={styles.profileTop}>
         <Image
           style={styles.avatar}
           source={{ uri: activeProfile.avatar_url }}
           // source={require('../../assets/images/image-user-placeholder.png')}
         />
-        <View
+        <ViewPlain
           style={styles.profileHeaderText}
         >
           <TextBold style={{fontSize: 22}}>{activeProfile.name}</TextBold>
           <Text style={{color: '#0079ff'}}>@{activeProfile.login}</Text>
           <Text>{activeProfile.created_at}</Text>
-        </View>
-      </View>
-      <View style={styles.bioView}>
+        </ViewPlain>
+      </ViewPlain>
+      <ViewPlain style={styles.bioView}>
         <Text style={styles.bioText}>
           {activeProfile.bio ? activeProfile.bio : 'This profile has no bio'}
         </Text>
-      </View>
+      </ViewPlain>
       <View style={styles.status}>
-        <View>
+        <ViewPlain>
           <Text style={styles.statusLabel}>Repos</Text>
           <TextBold style={styles.statusNumber}>{activeProfile.public_repos}</TextBold>
-        </View>
-        <View>
+        </ViewPlain>
+        <ViewPlain>
           <Text style={styles.statusLabel}>Followers</Text>
           <TextBold style={styles.statusNumber}>{activeProfile.followers}</TextBold>
-        </View>
-        <View>
+        </ViewPlain>
+        <ViewPlain>
           <Text style={styles.statusLabel}>Following</Text>
           <TextBold style={styles.statusNumber}>{activeProfile.following}</TextBold>
-        </View>
+        </ViewPlain>
       </View>
-      <View style={styles.detailsView}>
-        <View style={styles.detail}>
+      <ViewPlain style={styles.detailsView}>
+        <ViewPlain style={styles.detail}>
           <LocationIcon color={activeProfile.location ? 'white': colorUnavailable} />
           <Text
             style={{color: activeProfile.location ? 'white': colorUnavailable}}
           >{activeProfile.location ? activeProfile.location : 'Unavailable'}</Text>
-        </View>
-        <View style={styles.detail}>
+        </ViewPlain>
+        <ViewPlain style={styles.detail}>
           <TwitterIcon color={activeProfile.twitter_username ? 'white': colorUnavailable} />
           <Text
             style={{color: activeProfile.twitter_username ? 'white': colorUnavailable}}
           >{activeProfile.twitter_username ? activeProfile.twitter_username : 'Unavailable'}</Text>
-        </View>
-        <View style={styles.detail}>
+        </ViewPlain>
+        <ViewPlain style={styles.detail}>
           <WebsiteIcon color={activeProfile.blog ? 'white': colorUnavailable}/>
           <Text
             style={{color: activeProfile.blog ? 'white': colorUnavailable}}
           >{activeProfile.blog ? activeProfile.blog : 'Unavailable'}</Text>
-        </View>
-        <View style={styles.detail}>
+        </ViewPlain>
+        <ViewPlain style={styles.detail}>
           <CompanyIcon color={activeProfile.company ? 'white': colorUnavailable}/>
           <Text
             style={{color: activeProfile.company ? 'white': colorUnavailable}}
           >{activeProfile.company ? activeProfile.company : 'Unavailable'}</Text>
-        </View>
-      </View>
-    </View>
+        </ViewPlain>
+      </ViewPlain>
+    </ViewContrast>
   );
 };
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#1e2a47',
+    // backgroundColor: '#1e2a47',
     borderRadius: 10,
     padding: 30,
     marginTop: 30,
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#141d2f',
+    // backgroundColor: '#141d2f',
     borderRadius: 10,
     padding: 20,
     marginTop: 20,

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { TextInput, View, Pressable, StyleSheet } from 'react-native';
-import { TextBold }  from 'components/themed';
+import { TextInput, Pressable, StyleSheet } from 'react-native';
+import { TextBold, ViewContrast, ViewPlain }  from 'components/themed';
 import SearchIcon from 'components/svgr/SearchIcon';
 
 const InputArea = ({ searchUser, loading }) => {
@@ -12,8 +12,8 @@ const InputArea = ({ searchUser, loading }) => {
   };
 
   return (
-    <View style={styles.InputArea}>
-      <View
+    <ViewContrast style={styles.InputArea}>
+      <ViewPlain
         style={styles.input}
       >
         <SearchIcon style={styles.searchIcon}/>
@@ -31,7 +31,7 @@ const InputArea = ({ searchUser, loading }) => {
           // autoCorrect={false}
           style={{color: '#fff', fontFamily: 'SpaceMono-Regular'}}
         />
-      </View>
+      </ViewPlain>
       <Pressable
         style={styles.button}
         onPress={handleSubmit}
@@ -39,7 +39,7 @@ const InputArea = ({ searchUser, loading }) => {
       >
         <TextBold>Search</TextBold>
       </Pressable>
-    </View>
+    </ViewContrast>
   );
 };
 
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center', // only applies to direct children
-    backgroundColor: '#1e2a47',
+    // backgroundColor: '#1e2a47',
     borderRadius: 10,
     padding: 10,
     marginTop: 40,

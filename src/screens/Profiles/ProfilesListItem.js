@@ -1,6 +1,6 @@
-import { StyleSheet, View, Image } from 'react-native';
+import { StyleSheet, Image } from 'react-native';
 
-import { Text, TextBold } from 'components/themed';
+import { Text, TextBold, View } from 'components/themed';
 
 import useProfiles from 'hooks/useProfiles';
 

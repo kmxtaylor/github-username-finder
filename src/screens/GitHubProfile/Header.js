@@ -1,5 +1,5 @@
-import { View, StyleSheet, Pressable } from 'react-native'; // will replace w/ themed version
-import { TextBold, Icon } from 'components/themed';
+import { StyleSheet, Pressable } from 'react-native'; // will replace w/ themed version
+import { TextBold, Icon, ViewPlain } from 'components/themed';
 
 import { useProfiles } from 'hooks/useProfiles';
 
@@ -31,7 +31,7 @@ const Header = () => {
   };
 
   return (
-    <View style={styles.header} testID='header'>
+    <ViewPlain style={styles.header} testID='header'>
       <TextBold style={styles.title} testID='test-header-text'>
         devfinder
       </TextBold>
@@ -45,7 +45,7 @@ const Header = () => {
           </Pressable>
         )
       }
-    </View>
+    </ViewPlain>
   );
 };
 

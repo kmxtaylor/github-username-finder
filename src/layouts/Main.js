@@ -1,5 +1,6 @@
-import { StyleSheet, ScrollView, SafeAreaView } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'components/themed';
 
 import { StatusBar } from 'components/themed';
 
@@ -16,7 +17,7 @@ const Main = ({ children }) => {
       > */}
       {/* may need to adjust element layering */}
       <SafeAreaView
-        style={[styles.container, {backgroundColor: colors.background}]}
+        style={styles.container}
       >
         {/* <ScrollView style={{ padding: 20 }} keyboardShouldPersistTaps='handled'> */}
           {children}

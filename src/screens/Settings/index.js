@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
-import { ScrollView, StyleSheet, Pressable, View } from 'react-native';
-import { Text } from 'components/themed';
+import { ScrollView, StyleSheet, Pressable } from 'react-native';
+import { Text, View } from 'components/themed';
 import { useThemeColors } from 'hooks/useThemeColors';
 import { Themes } from 'contexts/Theme';
 import { useCustomTheme } from 'hooks/useCustomTheme';
